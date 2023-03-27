@@ -1,0 +1,11 @@
+<h1>The family tree</h1>
+
+<% @people.each do |person| %>
+	<div>
+	  <%= link_to person.name, person %> 
+		</div>
+<% end %>
+
+
+<%= link_to 'Добавить человека', new_person_path(@person) %>
+

@@ -1,0 +1,26 @@
+<%= form_for @person do |f| %>
+
+	<div class="form-control">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+
+	<div class="form-control">
+		<%= f.radio_button :gender, "male" %>
+		<%= f.label :gender_male, "Male" %>
+		<%= f.radio_button :gender, "female" %>
+		<%= f.label :gender_female, "Female" %>
+	</div>
+
+	<div>
+		<%= f.collection_select :mother_id, Person.where(gender: 'female'), :id, :name, include_blank: true %>
+		<br>
+		<%= f.collection_select :father_id, Person.where(gender: 'male'), :id, :name, include_blank: true %>
+	</div>
+
+	<div class="form-control">
+		<%= f.submit 'Сохранить' %>
+		
+	</div>
+
+<% end %>
